@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>System Performance Alert</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: gray;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #0078d7, #00bcd4);
+            color: #ffffff;
+            border-radius: 12px 12px 0 0;
+
+        }
+
+        .header h1 {
+            font-size: 1.8em;
+            margin: 0;
+        }
+
+        .section {
+            padding: 20px;
+            margin-top: 15px;
+            border-radius: 8px;
+            background-color: #f5f8fa;
+            border: 1px solid black;
+        }
+
+        .section h3 {
+            margin: 0 0 10px;
+            font-size: 1.2em;
+            color: #0078d7;
+        }
+
+        .progress-bar-container {
+            margin-top: 10px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 6px;
+            height: 12px;
+            overflow: hidden;
+
+
+        }
+
+        .progress-bar span {
+            display: block;
+            height: 100%;
+            border-radius: 6px;
+            background-color: #000;
+
+        }
+
+
+        #warning-banner {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #ffe6e6;
+            color: #d80000;
+            text-align: start;
+            font-weight: normal;
+            border-radius: 5px;
+            border: 1px solid #d80000;
+        }
+
+        .server-deets {
+            text-align: start;
+            margin-top: 10px;
+            font-size: 1.3em;
+            color: #ffffff;
+            font-weight:bold;
+            border-radius: 5px ;
+            font-size: 1.2em;
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>System Performance Alert</h1>
+        </div>
+
+        <div class="server-deets">
+            <p id="server-name">Server Name: {{SERVER_NAME}}</p>
+            <p id="server-ip">Server IP: {{SERVER_IP}}</p>
+        </div>
+        <!-- Warning Banner -->
+        <div id="warning-banner">
+            {{warning-banner}}
+        </div>
+
+        <!-- CPU and Memory Section -->
+        <div class="section">
+            <h3>CPU and Memory</h3>
+            <p><strong>CPU Usage: </strong>{{cpu-usage}}</p>
+            <p><strong>Total Memory:</strong> {{total-memory}}</p>
+            <p><strong>Memory Usage:</strong> {{memory-usage}}</p>
+            <div class="progress-bar-container">
+                <div class="progress-bar">
+                    <!-- Dynamically set the width to reflect MEMORY_USAGE -->
+                    <span style="width: {{memory-usage}};"></span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Drive C Section -->
+        <div class="section">
+            <h3>Drive C: Main Storage</h3>
+            <p><strong>Total Space:</strong> {{c-drive-total}}</p>
+            <p><strong>Used Space:</strong> {{c-drive-used}}</p>
+            <p><strong>Available Space:</strong> {{c-drive-available}}</p>
+            <p><strong>Usage Percentage:</strong> {{c-drive-usage}}</p>
+            <div class="progress-bar-container">
+                <div class="progress-bar">
+                    <!-- same as line 109 -->
+                    <span style="width: {{c-drive-usage}};"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Drive F Section -->
+        <div class="section">
+            <h3>Drive F: Secondary Storage</h3>
+            <p><strong>Total Space:</strong> {{f-drive-total}}</p>
+            <p><strong>Used Space:</strong> {{f-drive-used}}</p>
+            <p><strong>Available Space:</strong> {{f-drive-available}}</p>
+            <p><strong>Usage Percentage:</strong> {{f-drive-usage}}</p>
+            <div class="progress-bar-container">
+                <div class="progress-bar">
+                    <!-- same as line 109 -->
+                    <span style="width: {{f-drive-usage}};"></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+   
+      
+
+
+</body>
+
+</html>

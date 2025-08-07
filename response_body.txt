@@ -1,0 +1,1 @@
+{"responseCode":"00","responseMessage":"Email sent successfully","data":null}

@@ -1,0 +1,5 @@
+THRESHOLD=70
+API_URL=""
+HTML_TEMPLATE_FILE="report_template.html"
+mailTo=""
+mailCc=""
